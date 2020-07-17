@@ -20,7 +20,10 @@ class Router
     case request.path_info
     when TWILIO_WEBHOOKS_PATH
       if TwilioVerification.verify_twilio_signature(request)
-        SendAckMessage.send_sms!
+        SendAckMessage.send_sms!(
+          to: ENV['TO_NUMBER'],
+          from: ENV['FROM_NUMBER'],
+        )
 
         return [200, {'Content-Type' => 'application/xml'}, [Twiml.enter_lobby_response]]
       else

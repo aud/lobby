@@ -5,10 +5,10 @@ require_relative './twilio_client'
 
 class SendAckMessage
   class << self
-    def send_sms!
+    def send_sms!(to:, from:)
       TwilioClient.send_sms!(
-        to: ENV['TO_NUMBER'],
-        from: ENV['FROM_NUMBER'],
+        to: to,
+        from: from,
         body: message,
       )
     end
