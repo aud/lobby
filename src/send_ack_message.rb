@@ -22,7 +22,7 @@ class SendAckMessage
     end
 
     def normalized_time
-      DateTime.now.strftime("%B %d, %Y at%l:%M:%S %P")
+      DateTime.now.strftime("%B %d, %Y at %l:%M:%S %P")
     end
   end
 end
