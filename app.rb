@@ -3,4 +3,4 @@
 require 'rack'
 require_relative './src/router'
 
-Rack::Handler::WEBrick.run(Router.new, Port: 9001)
+Rack::Handler::WEBrick.run(Router.new, Port: 8080, Host: '0.0.0.0')
