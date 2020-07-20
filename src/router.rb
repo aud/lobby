@@ -25,7 +25,7 @@ class Router
           from: ENV['FROM_NUMBER'],
         )
 
-        return [200, {'Content-Type' => 'application/xml'}, [Twiml.enter_lobby_response]]
+        return [200, {'Content-Type' => 'application/xml'}, [Twiml.enter_lobby_response(digits: ENV['RESPONSE_DIGITS']]]
       else
         return [403, {'Content-Type' => 'text/html'}, []]
       end

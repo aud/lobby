@@ -4,9 +4,9 @@ require 'twilio-ruby'
 
 module Twiml
   class << self
-    def enter_lobby_response
+    def enter_lobby_response(digits:)
       Twilio::TwiML::VoiceResponse.new do |response|
-        response.play(digits: '666')
+        response.play(digits: digits)
       end.to_xml
     end
   end
