@@ -25,12 +25,16 @@ class Router
           from: ENV['FROM_NUMBER'],
         )
 
-        return [200, {'Content-Type' => 'application/xml'}, [Twiml.enter_lobby_response(digits: ENV['RESPONSE_DIGITS']]]
+        # The lobby directory system doesn't pick up the digits if they are
+        # entered too quickly.
+        Kernel.sleep(2.0)
+
+        [200, {'Content-Type' => 'application/xml'}, [Twiml.enter_lobby_response(digits: ENV['RESPONSE_DIGITS'])]]
       else
-        return [403, {'Content-Type' => 'text/html'}, []]
+        [403, {'Content-Type' => 'text/plain'}, []]
       end
     else
-      return [404, {'Content-Type' => 'text/html'}, []]
+      [404, {'Content-Type' => 'text/plain'}, []]
     end
   end
 end

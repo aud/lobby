@@ -9,6 +9,8 @@ require_relative '../src/send_ack_message'
 
 class RouterTest < TestCase
   def test_200
+    Kernel.expects(:sleep).with(2.0)
+
     TwilioVerification
       .expects(:verify_twilio_signature)
       .returns(true)
@@ -36,7 +38,7 @@ class RouterTest < TestCase
     }
 
     result = Router.new.call(fake_env)
-    expected_result = [403, {'Content-Type' => 'text/html'}, []]
+    expected_result = [403, {'Content-Type' => 'text/plain'}, []]
 
     assert_equal(expected_result, result)
   end
@@ -47,7 +49,7 @@ class RouterTest < TestCase
     }
 
     result = Router.new.call(fake_env)
-    expected_result = [404, {'Content-Type' => 'text/html'}, []]
+    expected_result = [404, {'Content-Type' => 'text/plain'}, []]
 
     assert_equal(expected_result, result)
   end
