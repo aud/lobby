@@ -17,8 +17,6 @@ module TwilioVerification
       true
     end
 
-    private
-
     def validator
       @validator ||= Twilio::Security::RequestValidator.new(
         ENV['TWILIO_AUTH_TOKEN'],

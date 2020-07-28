@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require 'test_helper'
 require 'twilio-ruby'
-
-require_relative '../src/twiml'
+require_relative './test_helper'
 
 class TwimlTest < TestCase
   def test_enter_lobby_response

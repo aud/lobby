@@ -1,11 +1,8 @@
 # frozen_string_literal: true
 
-require 'test_helper'
 require 'rack'
 
-require_relative '../src/router'
-require_relative '../src/twilio_verification'
-require_relative '../src/send_ack_message'
+require_relative './test_helper'
 
 class RouterTest < TestCase
   def test_200

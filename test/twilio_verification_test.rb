@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
-
-require_relative '../src/twilio_verification'
+require_relative './test_helper'
 
 class TwilioVerificationTest < TestCase
   def test_verify_twilio_signature_bails_if_no_signature
@@ -42,7 +40,7 @@ class TwilioVerificationTest < TestCase
 
   def twilio_request_validator_stub
     stub('fake validator').tap do |validator|
-      Twilio::Security::RequestValidator.stubs(:new).returns(validator)
+      TwilioVerification.stubs(:validator).returns(validator)
     end
   end
 end

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-require 'test_helper'
 require 'twilio-ruby'
-
-require_relative '../src/twilio_client'
+require_relative './test_helper'
 
 class TwilioClientTest < TestCase
   def test_send_sms!

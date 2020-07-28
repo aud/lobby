@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
-require_relative '../src/twilio_client'
-require_relative '../src/send_ack_message'
+require_relative './test_helper'
 
 class SendAckMessageTest < TestCase
   def test_send_sms!
